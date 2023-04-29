@@ -9,18 +9,18 @@ CREATE TABLE movie(
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-CREATE TABLE users(
+CREATE TABLE user(
     user_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_name VARCHAR(255) NOT NULL,
     user_email VARCHAR(255) NOT NULL UNIQUE,
     user_password VARCHAR(255) NOT NULL
 );
 
---insert fake users
-INSERT INTO users (user_name, user_email,
+--insert fake user
+INSERT INTO user (user_name, user_email,
 user_password) VALUES ('jacob',
 'jacob@gmail.com', 'kth18822');
 
 --fake movies data
 INSERT INTO movie (user_id, title, summary, rating) values 
-('c1a94627-0e86-4078-9b12-b1abb74c424a', 'smrad3', 'dobar', '7');
+('e770cb7e-61cc-47ca-8787-5425f55854f4', 'smrad3', 'dobar', '7');
