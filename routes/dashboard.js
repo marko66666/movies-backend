@@ -4,6 +4,7 @@ const authorization = require("../middleware/authorization");
 
 router.get("/movies", async (req, res) => {
   try {
+    console.log("fetching movies...");
     const movies = await pool.query("SELECT * FROM movie");
     res.json(movies.rows);
   } catch (err) {
