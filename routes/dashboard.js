@@ -2,6 +2,15 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
+router.get("/movies", async (req, res) => {
+  try {
+    const movies = await pool.query("SELECT * FROM movie");
+    res.json(movies.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 router.get("/", authorization, async (req, res) => {
   try {
     const user = await pool.query(
